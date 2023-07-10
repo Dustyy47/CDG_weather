@@ -1,8 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
+    
     extend: {
+      container:{
+        center:true,
+        screens:{
+          sm: '68.4375rem'
+        }
+      },
+      fontFamily: {
+        main: 'Segoe UI'
+      },
       colors: {
         blue: '#1998DE',
         white: '#FFFFFF',
