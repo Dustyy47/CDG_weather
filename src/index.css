@@ -16,19 +16,23 @@
 
 
 *{
-    @apply text-black
+    @apply text-black duration-300 text-[19px]
 }
 
 body {
-    @apply bg-grey2
+    box-sizing: border-box;
+    @apply bg-blueLight 
 }
 
 @layer components{ 
+    .largeText{
+        @apply font-main text-5xl font-bold
+    }
     .h1{
         @apply font-main text-2xl font-bold;
     }
     .h2{
-        @apply font-main text-xl;
+        @apply font-main text-xl font-bold;
     }
     .regular{
         @apply font-main text-sm;

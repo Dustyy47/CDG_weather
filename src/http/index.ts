@@ -1,10 +1,11 @@
 import axios from "axios";
 
+const openweatherToken = process.env.REACT_APP_WEATHER_API_KEY 
+
 export const $cities = axios.create({
-    method: 'GET',
-    baseURL: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=100000&namePrefix=""',
-    headers: {
-        'X-RapidAPI-Key': 'ab17b51627msha68589134c53118p14e74ejsn1bed8fc12470',
-        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-      }
+    baseURL: `https://api.openweathermap.org/geo/1.0/direct?appid=${openweatherToken}`,
+})
+
+export const $weather = axios.create({
+    baseURL: `https://api.openweathermap.org/data/2.5/weather?appid=${openweatherToken}`,
 })
