@@ -40,7 +40,7 @@ function App() {
         <Search onChange={setCityQuery} placeholder='Поиск погоды' />
       </div>
       {weatherInfo && activeCity && (
-        <WeatherDisplay weatherInfo={weatherInfo} />
+        <WeatherDisplay activeCityInfo={activeCity} weatherInfo={weatherInfo} />
       )}
     </div>
   )

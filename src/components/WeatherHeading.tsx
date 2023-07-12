@@ -1,10 +1,22 @@
 import moment from 'moment'
 import { capitalizeFirstLetter } from '../helpers/textFormatters'
+import { Cityinfo } from '../http/CitiesAPI'
 import { WeatherInfo } from './WeatherDisplay'
 
-export function WeatherHeading({ weatherInfo }: { weatherInfo: WeatherInfo }) {
+export function WeatherHeading({
+  weatherInfo,
+  activeCityInfo
+}: {
+  weatherInfo: WeatherInfo
+  activeCityInfo: Cityinfo
+}) {
   const date = capitalizeFirstLetter(moment().format('ddd, D MMM, LT'))
-  const placeText = `${weatherInfo.name}, ${weatherInfo.sys.country}`
+  console.log(activeCityInfo)
+  const placeText = `${
+    activeCityInfo.local_names
+      ? activeCityInfo.local_names['ru']
+      : activeCityInfo.name
+  }, ${activeCityInfo.country}`
   const { lat, lon } = weatherInfo.coord
 
   return (

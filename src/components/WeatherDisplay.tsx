@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { weatherDetailsFields } from '../data/weatherDetails'
 import { useWeatherDetails } from '../hooks/useWeatherDetails'
+import { Cityinfo } from '../http/CitiesAPI'
 import { WeatherDetails } from './WeatherDetails'
 import { WeatherHeading } from './WeatherHeading'
 import { WeatherMain } from './WeatherMain'
@@ -38,7 +39,13 @@ function getAllAllowedDetails() {
   return weatherDetailsFields.map((field) => field.name)
 }
 
-export function WeatherDisplay({ weatherInfo }: { weatherInfo: WeatherInfo }) {
+export function WeatherDisplay({
+  weatherInfo,
+  activeCityInfo
+}: {
+  weatherInfo: WeatherInfo
+  activeCityInfo: Cityinfo
+}) {
   const { onChangeFields, selectedFields } = useWeatherDetails(
     getAllAllowedDetails()
   )
@@ -47,7 +54,10 @@ export function WeatherDisplay({ weatherInfo }: { weatherInfo: WeatherInfo }) {
   return (
     <div className='bg-white w-[50rem] h-[22.5rem] p-4 rounded-2 flex flex-col justify-between'>
       <div>
-        <WeatherHeading weatherInfo={weatherInfo} />
+        <WeatherHeading
+          weatherInfo={weatherInfo}
+          activeCityInfo={activeCityInfo}
+        />
         <div className='flex justify-between items-start'>
           <WeatherMain weatherInfo={weatherInfo} />
           <WeatherDetails

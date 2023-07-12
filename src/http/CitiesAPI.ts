@@ -13,7 +13,6 @@ class CitiesAPI{
         const limit = 5;
         const params = {q:city,limit}
         const {data} =  await $cities.get<Cityinfo[]>('',{params})
-        console.log(data)
         return data
     }
 }

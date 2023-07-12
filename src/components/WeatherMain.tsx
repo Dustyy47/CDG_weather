@@ -12,13 +12,13 @@ export function WeatherMain({ weatherInfo }: { weatherInfo: WeatherInfo }) {
 
   return (
     <div className='flex'>
-      <div className='p-2 flex flex-col items-center'>
+      <div className='w-[7.5rem] py-2 flex flex-col items-center mr-2'>
         <img
-          className='max-w-[6.25rem] mb-2'
+          className='max-w-[6.25rem] mb-2 '
           src={getWeatherImage(weather)}
           alt={desc}
         />
-        <p className='h2 text-grey5'>{desc}</p>
+        <p className='h2 text-grey5 text-center'>{desc}</p>
       </div>
       <div className='w-[14.6875rem] h-[5rem] bg-blueLight3 rounded-1 flex items-center justify-center'>
         <span className='largeText'>{temperature}°</span>
