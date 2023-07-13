@@ -1,21 +1,37 @@
+import { getCityName } from '../helpers/getCityName'
+import { CityInfo } from '../http/CitiesAPI'
+import { CountryFlag } from './CountryFlag'
+
 export function FavouriteItem({
-  children,
+  city,
   onClick,
   onRemove
 }: {
-  children: React.ReactElement | string
+  city: CityInfo
   onClick: () => any
   onRemove: () => any
 }) {
   return (
     <div
       onClick={onClick}
-      className='group bg-grey6 rounded-2 hover:bg-blueLight4 cursor-pointer flex justify-between items-center min-h-[2.5rem] px-4 py-2'
+      className='group bg-grey6 rounded-2 hover:bg-blueLight4 cursor-pointer flex justify-between items-center min-h-[2.5rem] px-3 py-2'
     >
-      <div>{children}</div>
+      <div>
+        <div className='flex items-center'>
+          <div className='mr-1 h-[.775rem] rounded-[.125rem] flex items-center'>
+            <CountryFlag country={city.country} />
+          </div>
+          <div>
+            <p className='regular h-2'>{getCityName(city)} </p>
+            <span className='light h-2 text-grey4 '>
+              {city.country} {city.state}
+            </span>
+          </div>
+        </div>
+      </div>
       <div
         onClick={(e) => {
-          e.preventDefault()
+          e.stopPropagation()
           onRemove()
         }}
         className='w-6 aspect-square flex items-center justify-center hover:bg-blueLight2 rounded-1'

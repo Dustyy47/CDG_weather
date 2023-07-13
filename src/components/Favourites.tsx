@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { FAVOURITES_LS_ROUTE } from '../App'
-import { getCityName } from '../helpers/getCityName'
 import { CityInfo } from '../http/CitiesAPI'
-import { CountryFlag } from './CountryFlag'
 import { FavouriteItem } from './FavouriteItem'
 import { Search } from './Search'
 
@@ -57,8 +55,8 @@ export function FavouritesCities({
   }
 
   return (
-    <div className='max-h-full overflow-hidden h-full'>
-      <div className='flex items-center mb-4'>
+    <div className='max-h-full overflow-hidden h-full md:w-auto sm:w-full'>
+      <div className='flex items-center mb-4 md:justify-start sm:justify-center'>
         <p className='h1 mr-2 '>Избранное</p>
         <svg
           className='w-3 fill-blueAccent'
@@ -81,21 +79,10 @@ export function FavouritesCities({
         {filteredFavourites.map((city) => (
           <div key={city.id} className='mb-1'>
             <FavouriteItem
+              city={city}
               onRemove={() => handleRemoveFavourite(city.id)}
               onClick={() => onChoose(city)}
-            >
-              <div className='flex items-center'>
-                <div className='mr-1 h-[.775rem] rounded-[.125rem] overflow-hidden'>
-                  <CountryFlag country={city.country} />
-                </div>
-                <div>
-                  <p className='regular h-2'>{getCityName(city)} </p>
-                  <span className='light h-2 text-grey4 '>
-                    {city.country} {city.state}
-                  </span>
-                </div>
-              </div>
-            </FavouriteItem>
+            />
           </div>
         ))}
       </div>

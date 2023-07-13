@@ -32,19 +32,19 @@ function App() {
   }
 
   return (
-    <div className='container mt-12'>
-      <div className='flex justify-between'>
+    <div className='container md:mt-12 sm:mt-5'>
+      <div className='flex justify-between md:flex-row sm:flex-col'>
         <FavouritesContext.Provider
           value={{ favouritesCities, toggleFavourite }}
         >
-          <div className='max-w-[50rem] w-full h-[22.5rem]'>
+          <div className='lg:max-w-[50rem] md:max-w-[28rem] w-full lg:h-[22.5rem] md:h-[32rem] md:mb-2 sm:mb-11'>
             <ActualWeather
               activeCity={activeCity}
               setActiveCity={setActiveCity}
             />
           </div>
         </FavouritesContext.Provider>
-        <div className='w-full max-w-[15.625rem]'>
+        <div className='w-full md:max-w-[15.625rem] sm:max-w-none'>
           <FavouritesCities
             onChoose={setActiveCity}
             favourites={favouritesCities}

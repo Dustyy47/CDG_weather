@@ -22,7 +22,7 @@ export function WeatherDetails({
     )
   }, [selectedFields])
   return (
-    <div className='p-4 w-[24.0625rem] min-h-[11.6875rem] bg-blueLight3 rounded-1'>
+    <div className='p-4 lg:w-[24.0625rem] sm:w-full w-full h-full bg-blueLight3 rounded-1'>
       {weatherDetails.map((field) => (
         <div
           key={field.name}

@@ -29,14 +29,17 @@ export function SearchCityGroup({
   }
 
   return (
-    <div className='mb-2 relative  max-w-[25.625rem] w-full' ref={searchGroup}>
+    <div
+      className=' relative  max-w-[25.625rem] w-full h-fit'
+      ref={searchGroup}
+    >
       <Search
         onChange={setCityQuery}
         onFocus={handleFocusSearchCity}
         focused={suggestedCitiesActive}
         placeholder='Поиск погоды'
       />
-      <div className='w-full absolute'>
+      <div className='w-full absolute mt-2'>
         <SuggestedCities
           cityQuery={cityQuery}
           isActive={suggestedCitiesActive}

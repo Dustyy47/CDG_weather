@@ -20,7 +20,7 @@ export function SuggestedCity({
       className='cursor-pointer flex items-center p-1 bg-white rounded-1 h-10 group hover:bg-blueAccent'
       onClick={handleClick}
     >
-      <div className='mr-1 h-[.775rem] rounded-[.125rem] overflow-hidden'>
+      <div className='mr-1 h-[.775rem] rounded-[.125rem] flex items-center'>
         <CountryFlag country={city.country} />
       </div>
       <p className='regular group-hover:text-white'>

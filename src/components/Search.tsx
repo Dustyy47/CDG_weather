@@ -31,8 +31,7 @@ export function Search({
   }, [debouncedValue])
 
   const wrapperClassname = classNames(
-    'flex justify-between  bg-blueLight2 w-full min-h-[2.5rem] p-1',
-    focused ? 'rounded-b-none rounded-t-2' : 'rounded-20'
+    'flex justify-between  bg-blueLight2 w-full min-h-[2.5rem] p-1 rounded-20'
   )
 
   return (
@@ -40,7 +39,7 @@ export function Search({
       <input
         onFocus={onFocus}
         onBlur={onBlur}
-        className='bg-transparent w-full max-w-[90%] focus:outline-none px-4 regular text-black placeholder:text-grey4'
+        className='bg-transparent w-full max-w-[90%] focus:outline-none px-4 regular text-black placeholder:text-grey4 whitespace-nowrap overflow-hidden overflow-ellipsis'
         type='text'
         value={value}
         onChange={handleChange}

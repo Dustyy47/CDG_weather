@@ -49,7 +49,7 @@ export function WeatherSettings({
           <h1 className='h1'>Параметры погоды</h1>
         </div>
 
-        <div className='p-4 w-[24.0625rem] bg-blueLight3 rounded-1 mb-[2rem]'>
+        <div className='p-4 max-w-[24.0625rem] bg-blueLight3 rounded-1 mb-[2rem]'>
           {weatherDetailsFields.map((field) => (
             <div
               key={field.name}
@@ -74,7 +74,7 @@ export function WeatherSettings({
         <div className='flex justify-end'>
           <button
             onClick={handleSubmit}
-            className='w-[9.375rem] h-[2.5rem] flex items-center justify-center bg-blueAccent rounded-1 text-white hover:bg-blue-500'
+            className='md:w-[9.375rem] sm:w-full h-[2.5rem] flex items-center justify-center bg-blueAccent rounded-1 text-white hover:bg-blue-500'
           >
             Применить
           </button>

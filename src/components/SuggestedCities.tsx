@@ -36,24 +36,25 @@ export function SuggestedCities({
   }
 
   const wrapperClassname = classNames(
-    'bg-blueLight2 w-full rounded-b-2 min-h-[5.125rem]',
+    'bg-blueLight2 w-full rounded-2',
     isActive
-      ? 'opacity-100 pointer-events-auto '
-      : 'opacity-0 pointer-events-none h-[0] '
+      ? 'opacity-100 pointer-events-auto  visible min-h-[1rem]'
+      : 'opacity-0 pointer-events-none hidden min-h-0'
   )
   return (
     <div className={wrapperClassname}>
-      <ul className='p-2'>
-        {loading
-          ? 'Loading'
-          : cities.map((city) => (
-              <div
-                key={`${city.lat} ${city.lon}`}
-                className='mb-1 last:mb-none '
-              >
-                <SuggestedCity city={city} onClick={handleClickCity} />
-              </div>
-            ))}
+      <ul className='md:p-2 sm:p-1 flex flex-col w-full'>
+        {loading ? (
+          <p className='text-center regular text-grey4'>Загрузка...</p>
+        ) : cities.length > 0 ? (
+          cities.map((city) => (
+            <div key={`${city.lat} ${city.lon}`} className='mb-1 last:mb-0 '>
+              <SuggestedCity city={city} onClick={handleClickCity} />
+            </div>
+          ))
+        ) : (
+          <p className='text-center regular text-grey4'>Такого города нет</p>
+        )}
       </ul>
     </div>
   )

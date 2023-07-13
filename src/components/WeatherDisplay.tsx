@@ -58,7 +58,7 @@ export function WeatherDisplay({
           weatherInfo={weatherInfo}
           activeCityInfo={activeCityInfo}
         />
-        <div className='flex justify-between items-start'>
+        <div className='flex lg:flex-row sm:flex-col justify-between items-start md:h-[11.6875rem] sm:mb-3 '>
           <WeatherMain weatherInfo={weatherInfo} />
           <WeatherDetails
             weatherInfo={weatherInfo}
