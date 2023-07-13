@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CDG_weather/static/css/main.c3fad9ac.css",
+    "main.js": "/CDG_weather/static/js/main.56cfb39f.js",
+    "static/media/SegoeUI.ttf": "/CDG_weather/static/media/SegoeUI.b127acafb23e1c48733e.ttf",
+    "static/media/SegoeUI-Bold.ttf": "/CDG_weather/static/media/SegoeUI-Bold.58c5b6ad38732253fb39.ttf",
+    "index.html": "/CDG_weather/index.html",
+    "main.c3fad9ac.css.map": "/CDG_weather/static/css/main.c3fad9ac.css.map",
+    "main.56cfb39f.js.map": "/CDG_weather/static/js/main.56cfb39f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3fad9ac.css",
+    "static/js/main.56cfb39f.js"
+  ]
+}
