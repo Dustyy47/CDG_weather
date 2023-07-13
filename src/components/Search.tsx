@@ -1,26 +1,46 @@
-import { ChangeEvent, useState } from 'react'
+import classNames from 'classnames'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { useDebounce } from '../hooks/useDebounce'
 
 export function Search({
   onChange,
+  focused = false,
+  debounced = true,
   onFocus,
+  onBlur,
   placeholder = ''
 }: {
   onChange: (v: string) => void
+  focused?: boolean
+  debounced?: boolean
   onFocus?: () => void
+  onBlur?: React.FocusEventHandler
   placeholder?: string
 }) {
   const [value, setValue] = useState('')
+  const debouncedValue = useDebounce<string>(value, 300)
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    onChange(e.target.value)
     setValue(e.target.value)
+    if (!debounced) onChange(e.target.value)
   }
+  useEffect(() => {
+    if (debounced) {
+      onChange(debouncedValue ?? '')
+    }
+  }, [debouncedValue])
+
+  const wrapperClassname = classNames(
+    'flex justify-between  bg-blueLight2 w-full min-h-[2.5rem] p-1',
+    focused ? 'rounded-b-none rounded-t-2' : 'rounded-20'
+  )
 
   return (
-    <div className='flex justify-between rounded-20 bg-blueLight2 max-w-[15.625rem] min-h-[2.5rem] p-1'>
+    <div className={wrapperClassname}>
       <input
         onFocus={onFocus}
-        className='bg-transparent max-w-[70%] focus:outline-none px-4 regular text-black placeholder:text-grey4'
+        onBlur={onBlur}
+        className='bg-transparent w-full max-w-[90%] focus:outline-none px-4 regular text-black placeholder:text-grey4'
         type='text'
         value={value}
         onChange={handleChange}

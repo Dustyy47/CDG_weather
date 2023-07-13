@@ -1,6 +1,6 @@
-import moment from 'moment'
-import { capitalizeFirstLetter } from '../helpers/textFormatters'
-import { Cityinfo } from '../http/CitiesAPI'
+import { getCityName } from '../helpers/getCityName'
+import { CityInfo } from '../http/CitiesAPI'
+import { CountryFlag } from './CountryFlag'
 import { WeatherInfo } from './WeatherDisplay'
 
 export function WeatherHeading({
@@ -8,23 +8,27 @@ export function WeatherHeading({
   activeCityInfo
 }: {
   weatherInfo: WeatherInfo
-  activeCityInfo: Cityinfo
+  activeCityInfo: CityInfo
 }) {
-  const date = capitalizeFirstLetter(moment().format('ddd, D MMM, LT'))
-  console.log(activeCityInfo)
-  const placeText = `${
-    activeCityInfo.local_names
-      ? activeCityInfo.local_names['ru']
-      : activeCityInfo.name
-  }, ${activeCityInfo.country}`
+  // const date = capitalizeFirstLetter(moment().format('ddd, D MMM, LT'))
   const { lat, lon } = weatherInfo.coord
 
   return (
-    <div className='flex justify-between'>
-      <p className='h2 mb-8'>{date}</p>
+    <div className='flex justify-between mb-3'>
+      {/* <p className='h2 '>{date}</p> */}
       <div>
-        <p className='h2 '>{placeText}</p>
-        <p className='regular text-grey5 text-right'>
+        <div className='flex items-center'>
+          <div className='mr-1 h-3 rounded-[.125rem] overflow-hidden'>
+            <CountryFlag country={activeCityInfo.country} />
+          </div>
+          <p className='h2 '>
+            {`${getCityName(activeCityInfo)}, `}
+            <span className='regular text-grey4'>
+              {activeCityInfo.country} {activeCityInfo.state}
+            </span>
+          </p>
+        </div>
+        <p className='regular text-grey5 text-left'>
           {lat}, {lon}
         </p>
       </div>

@@ -1,46 +1,42 @@
 @font-face {
-    font-family: 'Segoe UI';
-    src: url('./fonts/SegoeUI-Bold.ttf') format('truetype');
-    font-weight: 700;
-  }
-  
-  @font-face {
-    font-family: 'Segoe UI';
-    src: url('./fonts/SegoeUI.ttf') format('truetype');
-    font-weight: 400;
-  }
-  
+  font-family: 'Segoe UI';
+  src: url('./fonts/SegoeUI-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./fonts/SegoeUI.ttf') format('truetype');
+  font-weight: 400;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-*{
-    @apply text-black duration-300 text-[19px]
+* {
+  box-sizing: border-box;
+  @apply text-black duration-300 text-[19px];
 }
 
 body {
-    box-sizing: border-box;
-    @apply bg-blueLight 
+  @apply bg-blueLight w-full h-full;
 }
 
-@layer components{ 
-    .largeText{
-        @apply font-main text-5xl font-bold
-    }
-    .h1{
-        @apply font-main text-2xl font-bold;
-    }
-    .h2{
-        @apply font-main text-xl font-bold;
-    }
-    .regular{
-        @apply font-main text-sm;
-    }
-    .light{
-        @apply font-main text-xs
-    }
-
+@layer components {
+  .largeText {
+    @apply font-main text-5xl font-bold;
+  }
+  .h1 {
+    @apply font-main text-2xl font-bold;
+  }
+  .h2 {
+    @apply font-main text-xl font-bold;
+  }
+  .regular {
+    @apply font-main text-sm;
+  }
+  .light {
+    @apply font-main text-xs;
+  }
 }
-
-    

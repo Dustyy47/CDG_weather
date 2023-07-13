@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { weatherDetailsFields } from '../data/weatherDetails'
 import { useWeatherDetails } from '../hooks/useWeatherDetails'
-import { Cityinfo } from '../http/CitiesAPI'
+import { CityInfo } from '../http/CitiesAPI'
 import { WeatherDetails } from './WeatherDetails'
 import { WeatherHeading } from './WeatherHeading'
 import { WeatherMain } from './WeatherMain'
@@ -44,7 +44,7 @@ export function WeatherDisplay({
   activeCityInfo
 }: {
   weatherInfo: WeatherInfo
-  activeCityInfo: Cityinfo
+  activeCityInfo: CityInfo
 }) {
   const { onChangeFields, selectedFields } = useWeatherDetails(
     getAllAllowedDetails()
@@ -52,7 +52,7 @@ export function WeatherDisplay({
   const [areSettingsOpen, setSettingsOpen] = useState(false)
 
   return (
-    <div className='bg-white w-[50rem] h-[22.5rem] p-4 rounded-2 flex flex-col justify-between'>
+    <div className='bg-white w-full h-[22.5rem] p-4 rounded-2 flex flex-col justify-between'>
       <div>
         <WeatherHeading
           weatherInfo={weatherInfo}
@@ -67,7 +67,7 @@ export function WeatherDisplay({
         </div>
       </div>
       <div
-        className='group flex cursor-pointer'
+        className='group flex cursor-pointer w-[10rem]'
         onClick={() => setSettingsOpen(true)}
       >
         <svg

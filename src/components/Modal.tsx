@@ -12,7 +12,7 @@ export function Modal({
 }) {
   const windowStateStyle = classNames(
     isOpen
-      ? 'top-[50%] translate-y-[-70%] opacity-1'
+      ? 'top-[50%] translate-y-[-70%] opacity-1 h-full'
       : 'top-[100%] translate-y-0 opacity-0 pointer-events-none'
   )
 

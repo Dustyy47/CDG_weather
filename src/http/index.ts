@@ -1,11 +1,15 @@
-import axios from "axios";
+import axios from 'axios'
 
-const openweatherToken = process.env.REACT_APP_WEATHER_API_KEY 
+const openweatherToken = process.env.REACT_APP_WEATHER_API_KEY
 
 export const $cities = axios.create({
-    baseURL: `https://api.openweathermap.org/geo/1.0/direct?appid=${openweatherToken}`,
+  baseURL: `https://api.openweathermap.org/geo/1.0/direct?appid=${openweatherToken}`
+})
+
+export const $citiesReverse = axios.create({
+  baseURL: `https://api.openweathermap.org/geo/1.0/reverse?appid=${openweatherToken}`
 })
 
 export const $weather = axios.create({
-    baseURL: `https://api.openweathermap.org/data/2.5/weather?appid=${openweatherToken}`,
+  baseURL: `https://api.openweathermap.org/data/2.5/weather?appid=${openweatherToken}`
 })
