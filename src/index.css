@@ -33,6 +33,9 @@ body {
   .h2 {
     @apply font-main text-xl font-bold;
   }
+  .h3 {
+    @apply font-main text-lg font-bold;
+  }
   .regular {
     @apply font-main text-sm;
   }

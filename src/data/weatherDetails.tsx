@@ -1,4 +1,3 @@
-import moment from 'moment'
 import { WeatherDetailsField } from '../components/WeatherDetails'
 import { formatTemperature } from '../helpers/textFormatters'
 
@@ -65,7 +64,7 @@ export const weatherDetailsFields: WeatherDetailsField[] = [
     ),
     label: 'Время заката',
     name: 'Sunset time',
-    formatValue: (weatherInfo) =>
-      '' + moment(weatherInfo.sys.sunset).format('LT')
+    formatValue: (weatherInfo) => ''
+    // '' + moment(weatherInfo.sys.sunset).format('LT')
   }
 ]

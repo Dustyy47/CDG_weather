@@ -13,7 +13,6 @@ export function WeatherHeading({
   weatherInfo: WeatherInfo
   activeCityInfo: CityInfo
 }) {
-  // const date = capitalizeFirstLetter(moment().format('ddd, D MMM, LT'))
   const { lat, lon } = weatherInfo.coord
   const favourites = useContext(FavouritesContext)
 
@@ -30,15 +29,17 @@ export function WeatherHeading({
       {/* <p className='h2 '>{date}</p> */}
       <div>
         <div className='flex items-center'>
-          <div className='mr-1 h-3 rounded-[.125rem] overflow-hidden'>
+          <div className='mr-2 h-3 rounded-[.125rem] overflow-hidden'>
             <CountryFlag country={activeCityInfo.country} />
           </div>
-          <p className='h2 '>
-            {`${getCityName(activeCityInfo)}, `}
-            <span className='regular text-grey4'>
+          <div className='flex justify-start md:flex-row sm:flex-col md:items-end sm:items-start'>
+            <p className='h2 md:leading-10 sm:leading-5 md:mr-1 sm:mr-0'>{`${getCityName(
+              activeCityInfo
+            )} `}</p>
+            <p className='h3 md:leading-10 sm:leading-8 text-grey4 '>
               {activeCityInfo.country} {activeCityInfo.state}
-            </span>
-          </p>
+            </p>
+          </div>
         </div>
         <p className='regular text-grey5 text-left'>
           {lat}, {lon}

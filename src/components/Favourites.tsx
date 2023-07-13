@@ -21,7 +21,9 @@ export function FavouritesCities({
   }, [favourites])
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem(FAVOURITES_LS_ROUTE) || '')
+    let ls = localStorage.getItem(FAVOURITES_LS_ROUTE)
+    if (!ls) return
+    const items = JSON.parse(ls)
     if (items) {
       setFavourites([...items])
     }
