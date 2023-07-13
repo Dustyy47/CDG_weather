@@ -1,45 +1,56 @@
 import { createContext, useState } from 'react'
 import { ActualWeather } from './components/ActualWeather'
-import { Favourites } from './components/Favourites'
+import { FavouritesCities } from './components/Favourites'
+import { useLocalState } from './hooks/useLocalState'
 import { CityInfo } from './http/CitiesAPI'
 
-interface ICitiesContext {
-  activeCity: CityInfo | null
-  setActiveCity: React.Dispatch<React.SetStateAction<CityInfo | null>>
+interface IFavouritesContext {
   favouritesCities: CityInfo[]
-  setFavouritesCities: React.Dispatch<React.SetStateAction<CityInfo[]>>
+  toggleFavourite: (c: CityInfo) => any
 }
 
-export const CitiesContext = createContext<ICitiesContext | null>(null)
+export const FavouritesContext = createContext<IFavouritesContext | null>(null)
+export const FAVOURITES_LS_ROUTE = 'favourites'
 
 function App() {
   const [activeCity, setActiveCity] = useState<CityInfo | null>(null)
-  const [favouritesCities, setFavouritesCities] = useState<CityInfo[]>([])
+  const [favouritesCities, setFavouritesCities] = useLocalState<CityInfo[]>(
+    FAVOURITES_LS_ROUTE,
+    []
+  )
+
+  function toggleFavourite(targetCity: CityInfo) {
+    for (const city of favouritesCities) {
+      if (targetCity.id === city.id) {
+        setFavouritesCities((prev) => [
+          ...prev.filter((city) => city.id !== targetCity.id)
+        ])
+        return
+      }
+    }
+    setFavouritesCities((prev) => [...prev, targetCity])
+  }
 
   return (
     <div className='container mt-12'>
       <div className='flex justify-between'>
-        <CitiesContext.Provider
-          value={{
-            activeCity,
-            setActiveCity,
-            favouritesCities,
-            setFavouritesCities
-          }}
+        <FavouritesContext.Provider
+          value={{ favouritesCities, toggleFavourite }}
         >
-          <div className='max-w-[50rem] w-full'>
+          <div className='max-w-[50rem] w-full h-[22.5rem]'>
             <ActualWeather
               activeCity={activeCity}
               setActiveCity={setActiveCity}
             />
           </div>
-          <div className='w-full max-w-[15.625rem]'>
-            <Favourites<CityInfo>
-              items={favouritesCities}
-              setItems={setFavouritesCities}
-            />
-          </div>
-        </CitiesContext.Provider>
+        </FavouritesContext.Provider>
+        <div className='w-full max-w-[15.625rem]'>
+          <FavouritesCities
+            onChoose={setActiveCity}
+            favourites={favouritesCities}
+            setFavourites={setFavouritesCities}
+          />
+        </div>
       </div>
     </div>
   )

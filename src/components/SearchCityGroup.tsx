@@ -29,7 +29,7 @@ export function SearchCityGroup({
   }
 
   return (
-    <div className='mb-2 relative  max-w-[25.625rem] poin' ref={searchGroup}>
+    <div className='mb-2 relative  max-w-[25.625rem] w-full' ref={searchGroup}>
       <Search
         onChange={setCityQuery}
         onFocus={handleFocusSearchCity}

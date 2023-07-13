@@ -36,10 +36,10 @@ export function SuggestedCities({
   }
 
   const wrapperClassname = classNames(
-    'bg-blueLight2 w-full rounded-b-2 block',
+    'bg-blueLight2 w-full rounded-b-2 min-h-[5.125rem]',
     isActive
-      ? 'opacity-100 pointer-events-auto min-h-[5.125rem] block'
-      : 'opacity-0 pointer-events-none min-h-[0] hidden'
+      ? 'opacity-100 pointer-events-auto '
+      : 'opacity-0 pointer-events-none h-[0] '
   )
   return (
     <div className={wrapperClassname}>

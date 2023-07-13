@@ -7,8 +7,9 @@ module.exports = {
       container:{
         center:true,
         screens:{
-          sm: '68.4375rem'
-        }
+          sm: '70.4375rem'
+        },
+        padding:'1rem'
       },
       fontFamily: {
         main: 'Segoe UI'
@@ -25,6 +26,7 @@ module.exports = {
         grey3: '#E7E7E7',
         grey4: '#686868',
         grey5: '#6C6C6C',
+        grey6: 'rgba(23, 23, 23, 0.03)',
         greyDark1: '#464646',
         greyDark2: '#373737',
         greyDark3: '#2C2C2C',

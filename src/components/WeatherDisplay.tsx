@@ -52,7 +52,7 @@ export function WeatherDisplay({
   const [areSettingsOpen, setSettingsOpen] = useState(false)
 
   return (
-    <div className='bg-white w-full h-[22.5rem] p-4 rounded-2 flex flex-col justify-between'>
+    <div className='bg-white w-full h-full  p-4 rounded-2 flex flex-col justify-between'>
       <div>
         <WeatherHeading
           weatherInfo={weatherInfo}
