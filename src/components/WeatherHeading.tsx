@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import { useContext } from 'react'
 import { FavouritesContext } from '../App'
 import { getCityName } from '../helpers/getCityName'
+import { getLocaleTime } from '../helpers/timeHelpers'
+import { useNow } from '../hooks/useNow'
 import { CityInfo } from '../http/CitiesAPI'
 import { CountryFlag } from './CountryFlag'
 import { WeatherInfo } from './WeatherDisplay'
@@ -15,6 +17,9 @@ export function WeatherHeading({
 }) {
   const { lat, lon } = weatherInfo.coord
   const favourites = useContext(FavouritesContext)
+  const getTime = () =>
+    getLocaleTime(new Date().getTime(), weatherInfo.timezone)
+  const time = useNow<string>(getTime(), getTime, 1000)
 
   const isFavourite =
     favourites?.favouritesCities.includes(activeCityInfo) ?? false
@@ -25,7 +30,7 @@ export function WeatherHeading({
   }
 
   return (
-    <div className='flex justify-between mb-3'>
+    <div className='flex items-start justify-between mb-3'>
       {/* <p className='h2 '>{date}</p> */}
       <div>
         <div className='flex items-center'>
@@ -45,8 +50,11 @@ export function WeatherHeading({
           {lat}, {lon}
         </p>
       </div>
-      <div className='cursor-pointer' onClick={handleToggleCityFavourite}>
-        <FavouriteIcon isFavourite={isFavourite} />
+      <div className='flex items-center'>
+        <p className='mr-2 regular md:leading-10 sm:leading-5'>{time}</p>
+        <div className='cursor-pointer ' onClick={handleToggleCityFavourite}>
+          <FavouriteIcon isFavourite={isFavourite} />
+        </div>
       </div>
     </div>
   )

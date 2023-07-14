@@ -48,7 +48,7 @@ export function SuggestedCities({
           <p className='text-center regular text-grey4'>Загрузка...</p>
         ) : cities.length > 0 ? (
           cities.map((city) => (
-            <div key={`${city.lat} ${city.lon}`} className='mb-1 last:mb-0 '>
+            <div key={city.id} className='mb-1 last:mb-0 '>
               <SuggestedCity city={city} onClick={handleClickCity} />
             </div>
           ))

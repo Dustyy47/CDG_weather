@@ -1,5 +1,6 @@
 import { WeatherDetailsField } from '../components/WeatherDetails'
 import { formatTemperature } from '../helpers/textFormatters'
+import { getLocaleTime } from '../helpers/timeHelpers'
 
 export const weatherDetailsFields: WeatherDetailsField[] = [
   {
@@ -54,7 +55,7 @@ export const weatherDetailsFields: WeatherDetailsField[] = [
     ),
     label: 'Давление',
     name: 'Pressure',
-    formatValue: (weatherInfo) => weatherInfo.main.pressure + ' мм рт.ст'
+    formatValue: (weatherInfo) => weatherInfo.main.pressure + ' гПа'
   },
   {
     icon: (
@@ -64,7 +65,15 @@ export const weatherDetailsFields: WeatherDetailsField[] = [
     ),
     label: 'Время заката',
     name: 'Sunset time',
-    formatValue: (weatherInfo) => ''
-    // '' + moment(weatherInfo.sys.sunset).format('LT')
+    formatValue: (weatherInfo) => {
+      return getLocaleTime(
+        weatherInfo.sys.sunset * 1000,
+        weatherInfo.timezone
+      ).slice(0, 5)
+    }
+    // new Date(weatherInfo.sys.sunset).toLocaleTimeString('ru', {
+    //   timeZone: '' + weatherInfo.sys.sunset
+    // })
+    // '' + moment(weatherInfo.sysяё.sunset).format('LT')
   }
 ]
