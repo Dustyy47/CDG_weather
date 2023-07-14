@@ -9,23 +9,29 @@
 5.As a user, after reloading the page, you can see the list of saved cities and saved data from the settings page. </br>
 
 <h2>How To Use</h2>
-1. First make sure that you have Node installed.js and npm. </br>
-2. Clone the repository using the git </br>
+First make sure that you have Node installed.js and npm. </br>
+Clone the repository using the git </br>
 
    ```git
    https://github.com/Dustyy47/CDG_weather.git
    ```
-3. Navigate to the project folder using the cd your-repository command </br>
-4. Install the dependencies using the npm install command </br>
+Navigate to the project folder using the cd your-repository command </br>
+Install the dependencies using the npm install command </br>
 
    ```javascript
    npm install
    ```
-5. Launch the application using the npm start command </br>
+Create .env file in the root folder and set there your openweather API key
+
+   ```javascript
+   REACT_APP_WEATHER_API_KEY=YOUR_API_KEY
+   ```
+
+Launch the application using the npm start command </br>
    ```javascript
    npm start
    ```
-6. Open the browser and go to http://localhost:3000 to see the app in action. </br>
+Open the browser and go to http://localhost:3000 to see the app in action. </br>
 
 <h2>API used</h2>
 used weather and geo api`s from https://openweathermap.org/
