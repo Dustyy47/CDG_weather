@@ -51,7 +51,6 @@ export function WeatherDisplay({
     getAllAllowedDetails()
   )
   const [areSettingsOpen, setSettingsOpen] = useState(false)
-  console.log(weatherInfo)
 
   return (
     <div className='bg-white w-full h-full  p-4 rounded-2 flex flex-col justify-between'>

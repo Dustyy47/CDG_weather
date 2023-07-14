@@ -14,6 +14,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   @apply text-black duration-300 text-[19px];

@@ -26,7 +26,6 @@ export function WeatherHeading({
 
   function handleToggleCityFavourite() {
     favourites?.toggleFavourite(activeCityInfo)
-    console.log(isFavourite)
   }
 
   return (

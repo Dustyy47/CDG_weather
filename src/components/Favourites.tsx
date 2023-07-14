@@ -33,6 +33,11 @@ export function FavouritesCities({
     setFavourites((prev) => [...prev.filter((city) => city.id !== id)])
   }
 
+  function handleChoose(city: CityInfo) {
+    window.scrollTo(0, 0)
+    onChoose(city)
+  }
+
   function handleSearch(v: string) {
     console.log(v)
     if (!v) {
@@ -83,7 +88,7 @@ export function FavouritesCities({
             <FavouriteItem
               city={city}
               onRemove={() => handleRemoveFavourite(city.id)}
-              onClick={() => onChoose(city)}
+              onClick={() => handleChoose(city)}
             />
           </div>
         ))}

@@ -24,7 +24,6 @@ export function SuggestedCities({
       }
       setLoading(true)
       const citiesInfo = await CitiesAPI.getCitiesFromName(cityQuery)
-      console.log(citiesInfo)
       setLoading(false)
       setCities(citiesInfo)
     }
