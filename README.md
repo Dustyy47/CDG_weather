@@ -10,9 +10,10 @@
 
 <h2>How To Use</h2>
 1. First make sure that you have Node installed.js and npm. </br>
-2. Clone the repository using the git   
+2. Clone the repository using the git </br>
+
    ```git
-   git clone https://github.com/Dustyy47/CD_Game.git
+   https://github.com/Dustyy47/CDG_weather.git
    ```
 3. Navigate to the project folder using the cd your-repository command </br>
 4. Install the dependencies using the npm install command </br>
