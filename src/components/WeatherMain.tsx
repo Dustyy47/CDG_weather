@@ -12,9 +12,9 @@ export function WeatherMain({ weatherInfo }: { weatherInfo: WeatherInfo }) {
 
   return (
     <div className='flex flex-col justify-between lg:w-[22.8125rem] sm:w-full h-full sm:mb-3'>
-      <div className='w-full py-2 flex justify-between items-start mr-2'>
+      <div className='w-full flex justify-between items-start mr-2'>
         <img
-          className='max-w-[6.25rem] w-full object-cover mr-2'
+          className='max-w-[6.25rem] w-full object-cover mr-2 pt-2'
           src={getWeatherImage(weather)}
           alt={desc}
         />
