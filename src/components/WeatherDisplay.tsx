@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { weatherDetailsFields } from '../data/weatherDetails'
 import { useWeatherDetails } from '../hooks/useWeatherDetails'
 import { CityInfo } from '../http/CitiesAPI'
 import { WeatherDetails } from './WeatherDetails'
 import { WeatherHeading } from './WeatherHeading'
 import { WeatherMain } from './WeatherMain'
-import { WeatherSettings } from './WeatherSettings'
+import { WeatherSettingsMemo } from './WeatherSettings'
 
 export interface WeatherInfo {
   coord: {
@@ -51,6 +51,9 @@ export function WeatherDisplay({
     getAllAllowedDetails()
   )
   const [areSettingsOpen, setSettingsOpen] = useState(false)
+  const handleCloseSettings = useCallback(() => {
+    setSettingsOpen(false)
+  }, [])
 
   return (
     <div className='bg-white w-full h-full  p-4 rounded-2 flex flex-col justify-between'>
@@ -82,9 +85,9 @@ export function WeatherDisplay({
         <p className='regular group-hover:text-blueAccent'>Настройки погоды</p>
       </div>
 
-      <WeatherSettings
+      <WeatherSettingsMemo
         isOpen={areSettingsOpen}
-        onClose={() => setSettingsOpen(false)}
+        onClose={handleCloseSettings}
         selectedFields={selectedFields}
         onChangeFields={onChangeFields}
       />

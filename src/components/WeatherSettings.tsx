@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { weatherDetailsFields } from '../data/weatherDetails'
 import { Checkbox } from './Checkbox'
 import { Modal } from './Modal'
 
-export function WeatherSettings({
+function WeatherSettings({
   onChangeFields,
   onClose,
   selectedFields,
@@ -83,3 +83,5 @@ export function WeatherSettings({
     </Modal>
   )
 }
+
+export const WeatherSettingsMemo = memo(WeatherSettings)

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { memo, useRef, useState } from 'react'
 import { useOutsideClick } from '../hooks/useOutsideClick'
 import { CityInfo } from '../http/CitiesAPI'
 import { Search } from './Search'
@@ -49,3 +49,5 @@ export function SearchCityGroup({
     </div>
   )
 }
+
+export const SearchCityGroupMemo = memo(SearchCityGroup)

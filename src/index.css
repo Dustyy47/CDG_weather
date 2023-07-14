@@ -46,4 +46,10 @@ body {
   .light {
     @apply font-main text-xs;
   }
+  .mob_h2 {
+    @apply font-main text-sm font-bold;
+  }
+  .mob_h3 {
+    @apply font-main text-xs font-bold;
+  }
 }

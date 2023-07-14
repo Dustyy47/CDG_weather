@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react'
 import { ActualWeather } from './components/ActualWeather'
-import { FavouritesCities } from './components/Favourites'
+import { FavouritesCitiesMemo } from './components/Favourites'
 import { useLocalState } from './hooks/useLocalState'
 import { CityInfo } from './http/CitiesAPI'
 
@@ -45,7 +45,7 @@ function App() {
           </div>
         </FavouritesContext.Provider>
         <div className='w-full md:max-w-[15.625rem] sm:max-w-none lg:h-[33rem] md:h-[40rem] sm:h-full'>
-          <FavouritesCities
+          <FavouritesCitiesMemo
             onChoose={setActiveCity}
             favourites={favouritesCities}
             setFavourites={setFavouritesCities}

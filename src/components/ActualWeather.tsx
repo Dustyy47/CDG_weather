@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import CitiesAPI, { CityInfo } from '../http/CitiesAPI'
 import WeatherAPI from '../http/WeatherAPI'
 import { Location } from './Location'
-import { SearchCityGroup } from './SearchCityGroup'
+import { SearchCityGroupMemo } from './SearchCityGroup'
 import { WeatherDisplay, WeatherInfo } from './WeatherDisplay'
 
 export function ActualWeather({
@@ -64,7 +64,7 @@ export function ActualWeather({
         </svg>
       </div>
       <div className='flex justify-between w-full items-center mb-2'>
-        <SearchCityGroup onPick={setActiveCity} />
+        <SearchCityGroupMemo onPick={setActiveCity} />
         <Location isPicked={isUserLocation} onClick={toggleUserLocation} />
       </div>
       {weatherInfo && activeCity && (

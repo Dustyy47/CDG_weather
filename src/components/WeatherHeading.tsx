@@ -28,18 +28,17 @@ export function WeatherHeading({
   )
 
   return (
-    <div className='flex items-start justify-between mb-3'>
-      {/* <p className='h2 '>{date}</p> */}
+    <div className='flex items-start md:flex-row sm:flex-col-reverse justify-between mb-3'>
       <div>
         <div className='flex items-center'>
           <div className='mr-2 h-3 rounded-[.125rem] overflow-hidden'>
             <CountryFlag country={activeCityInfo.country} />
           </div>
-          <div className='flex justify-start md:flex-row sm:flex-col md:items-end sm:items-start'>
-            <p className='h2 md:leading-10 sm:leading-5 md:mr-1 sm:mr-0'>{`${getCityName(
+          <div className='flex justify-start lg:flex-row sm:flex-col md:items-end sm:items-start'>
+            <p className='md:h2 sm:mob_h2 md:leading-7 sm:leading-3 md:mr-1 sm:mr-0'>{`${getCityName(
               activeCityInfo
             )} `}</p>
-            <p className='h3 md:leading-10 sm:leading-8 text-grey4 '>
+            <p className='md:h3 sm:mob_h3 md:leading-7 sm:leading-5 text-grey4 '>
               {activeCityInfo.country} {activeCityInfo.state}
             </p>
           </div>
@@ -48,7 +47,7 @@ export function WeatherHeading({
           {lat}, {lon}
         </p>
       </div>
-      <div className='flex items-center'>
+      <div className='flex items-center justify-between md:w-auto sm:w-full sm:mb-2'>
         <p className='mr-2 regular md:leading-10 sm:leading-5'>
           <CityTime timezone={weatherInfo.timezone} />
         </p>

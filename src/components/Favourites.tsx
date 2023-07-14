@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { FAVOURITES_LS_ROUTE } from '../App'
 import { CityInfo } from '../http/CitiesAPI'
 import { FavouriteItem } from './FavouriteItem'
@@ -96,3 +96,5 @@ export function FavouritesCities({
     </div>
   )
 }
+
+export const FavouritesCitiesMemo = memo(FavouritesCities)
