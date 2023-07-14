@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import { useContext } from 'react'
 import { FavouritesContext } from '../App'
+import { isFavourite } from '../helpers/arrayHellpers'
 import { getCityName } from '../helpers/getCityName'
-import { getLocaleTime } from '../helpers/timeHelpers'
-import { useNow } from '../hooks/useNow'
 import { CityInfo } from '../http/CitiesAPI'
+import { CityTime } from './CityTime'
 import { CountryFlag } from './CountryFlag'
 import { WeatherInfo } from './WeatherDisplay'
 
@@ -17,16 +17,15 @@ export function WeatherHeading({
 }) {
   const { lat, lon } = weatherInfo.coord
   const favourites = useContext(FavouritesContext)
-  const getTime = () =>
-    getLocaleTime(new Date().getTime(), weatherInfo.timezone)
-  const time = useNow<string>(getTime(), getTime, 1000)
-
-  const isFavourite =
-    favourites?.favouritesCities.includes(activeCityInfo) ?? false
 
   function handleToggleCityFavourite() {
     favourites?.toggleFavourite(activeCityInfo)
   }
+
+  const isActiveCityFavourite = isFavourite(
+    favourites?.favouritesCities,
+    activeCityInfo
+  )
 
   return (
     <div className='flex items-start justify-between mb-3'>
@@ -50,9 +49,11 @@ export function WeatherHeading({
         </p>
       </div>
       <div className='flex items-center'>
-        <p className='mr-2 regular md:leading-10 sm:leading-5'>{time}</p>
+        <p className='mr-2 regular md:leading-10 sm:leading-5'>
+          <CityTime timezone={weatherInfo.timezone} />
+        </p>
         <div className='cursor-pointer ' onClick={handleToggleCityFavourite}>
-          <FavouriteIcon isFavourite={isFavourite} />
+          <FavouriteIcon isFavourite={isActiveCityFavourite} />
         </div>
       </div>
     </div>
