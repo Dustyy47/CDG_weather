@@ -34,8 +34,8 @@ export function WeatherHeading({
           <div className='mr-2 h-3 rounded-[.125rem] overflow-hidden'>
             <CountryFlag country={activeCityInfo.country} />
           </div>
-          <div className='flex justify-start lg:flex-row sm:flex-col md:items-end sm:items-start'>
-            <p className='md:h2 sm:mob_h2 md:leading-7 sm:leading-3 md:mr-1 sm:mr-0'>{`${getCityName(
+          <div className='flex justify-start lg:flex-row sm:flex-col lg:items-end md:items-start'>
+            <p className='md:h2 sm:mob_h2 md:leading-7 sm:leading-5 md:mr-1 sm:mr-0'>{`${getCityName(
               activeCityInfo
             )} `}</p>
             <p className='md:h3 sm:mob_h3 md:leading-7 sm:leading-5 text-grey4 '>

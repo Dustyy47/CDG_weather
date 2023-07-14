@@ -1,11 +1,13 @@
 import { useCallback, useState } from 'react'
 import { weatherDetailsFields } from '../data/weatherDetails'
-import { useWeatherDetails } from '../hooks/useWeatherDetails'
+import { useLocalState } from '../hooks/useLocalState'
 import { CityInfo } from '../http/CitiesAPI'
 import { WeatherDetails } from './WeatherDetails'
 import { WeatherHeading } from './WeatherHeading'
 import { WeatherMain } from './WeatherMain'
 import { WeatherSettingsMemo } from './WeatherSettings'
+
+const LS_SELECTED_WEATHER_DETAILS = 'selectedWeatherDetails'
 
 export interface WeatherInfo {
   coord: {
@@ -47,8 +49,10 @@ export function WeatherDisplay({
   weatherInfo: WeatherInfo
   activeCityInfo: CityInfo
 }) {
-  const { onChangeFields, selectedFields } = useWeatherDetails(
-    getAllAllowedDetails()
+  const [selectedFields, setSelectedFields] = useLocalState<string[]>(
+    LS_SELECTED_WEATHER_DETAILS,
+    getAllAllowedDetails(),
+    []
   )
   const [areSettingsOpen, setSettingsOpen] = useState(false)
   const handleCloseSettings = useCallback(() => {
@@ -89,7 +93,7 @@ export function WeatherDisplay({
         isOpen={areSettingsOpen}
         onClose={handleCloseSettings}
         selectedFields={selectedFields}
-        onChangeFields={onChangeFields}
+        onChangeFields={setSelectedFields}
       />
     </div>
   )

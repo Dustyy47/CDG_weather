@@ -16,6 +16,7 @@ function App() {
   const [activeCity, setActiveCity] = useState<CityInfo | null>(null)
   const [favouritesCities, setFavouritesCities] = useLocalState<CityInfo[]>(
     FAVOURITES_LS_ROUTE,
+    [],
     []
   )
 

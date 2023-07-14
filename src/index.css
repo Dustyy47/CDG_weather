@@ -47,9 +47,9 @@ body {
     @apply font-main text-xs;
   }
   .mob_h2 {
-    @apply font-main text-sm font-bold;
+    @apply font-main text-lg font-bold;
   }
   .mob_h3 {
-    @apply font-main text-xs font-bold;
+    @apply font-main text-sm font-bold;
   }
 }
