@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CDG_weather/static/css/main.f2495f76.css",
-    "main.js": "/CDG_weather/static/js/main.72060015.js",
+    "main.js": "/CDG_weather/static/js/main.1fe33bf9.js",
     "static/media/SegoeUI.ttf": "/CDG_weather/static/media/SegoeUI.b127acafb23e1c48733e.ttf",
     "static/media/SegoeUI-Bold.ttf": "/CDG_weather/static/media/SegoeUI-Bold.58c5b6ad38732253fb39.ttf",
     "index.html": "/CDG_weather/index.html",
     "main.f2495f76.css.map": "/CDG_weather/static/css/main.f2495f76.css.map",
-    "main.72060015.js.map": "/CDG_weather/static/js/main.72060015.js.map"
+    "main.1fe33bf9.js.map": "/CDG_weather/static/js/main.1fe33bf9.js.map"
   },
   "entrypoints": [
     "static/css/main.f2495f76.css",
-    "static/js/main.72060015.js"
+    "static/js/main.1fe33bf9.js"
   ]
 }
