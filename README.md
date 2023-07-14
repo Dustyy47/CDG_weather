@@ -1,4 +1,4 @@
-<h1>:sun_behind_rain_cloud: CDG Weather application</h1>
+<h1>:sun_behind_rain_cloud: CDG Academy Weather application</h1>
 <p>The final project is written in React.js, during the practice at Crimea Digital</p>
 <p>Live Demo: https://dustyy47.github.io/CDG_weather/</p>
 <h2>General Information</h2>
