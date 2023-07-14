@@ -62,7 +62,7 @@ export function FavouritesCities({
   }
 
   return (
-    <div className='max-h-full overflow-hidden h-full md:w-auto sm:w-full'>
+    <div className='max-h-full h-full md:w-auto sm:w-full'>
       <div className='flex items-center mb-4 md:justify-start sm:justify-center'>
         <p className='h1 mr-2 '>Избранное</p>
         <svg
@@ -82,7 +82,7 @@ export function FavouritesCities({
         />
       </div>
 
-      <div className='max-h-full'>
+      <div className='overflow-y-auto h-[66%]'>
         {filteredFavourites.map((city) => (
           <div key={city.id} className='mb-1'>
             <FavouriteItem

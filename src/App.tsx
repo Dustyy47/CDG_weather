@@ -44,7 +44,7 @@ function App() {
             />
           </div>
         </FavouritesContext.Provider>
-        <div className='w-full md:max-w-[15.625rem] sm:max-w-none'>
+        <div className='w-full md:max-w-[15.625rem] sm:max-w-none lg:h-[33rem] md:h-[40rem] sm:h-full'>
           <FavouritesCities
             onChoose={setActiveCity}
             favourites={favouritesCities}
